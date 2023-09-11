@@ -16,31 +16,30 @@ function App() {
 		alanBtn({
 			key: "c2a5d636164326949db7159a875243122e956eca572e1d8b807a3e2338fdd0dc/stage",
 			onCommand: (commandData) => {
-				if (commandData.command === "switch-on-1") {
+				const {command}: any = commandData;
+				if (command === "switch-on-1") {
 					set(ref(db, "SWITCH_01_IS_OPEN"), !isOpen);
-				} else if (commandData.command === "switch-on-2") {
+				} else if (command === "switch-on-2") {
 					set(ref(db, "SWITCH_02_IS_OPEN"), !isOpen);
-				} else if (commandData.command === "switch-off-1") {
+				} else if (command === "switch-off-1") {
 					set(ref(db, "SWITCH_01_IS_OPEN"), isOpen);
-				} else if (commandData.command === "switch-off-2") {
+				} else if (command === "switch-off-2") {
 					set(ref(db, "SWITCH_02_IS_OPEN"), isOpen);
-				} else if (commandData.command === "switch-on-4") {
+				} else if (command === "switch-on-4") {
 					set(ref(db, "SWITCH_04_IS_OPEN"), !isOpen);
-				} else if (commandData.command === "switch-off-4") {
+				} else if (command === "switch-off-4") {
 					set(ref(db, "SWITCH_04_IS_OPEN"), isOpen);
-				} else if (commandData.command === "switch-on-all") {
+				} else if (command === "switch-on-all") {
 					set(ref(db, "SWITCH_01_IS_OPEN"), !isOpen);
 					set(ref(db, "SWITCH_02_IS_OPEN"), !isOpen);
 					set(ref(db, "SWITCH_03_IS_OPEN"), !isOpen);
 					set(ref(db, "SWITCH_04_IS_OPEN"), !isOpen);
-				} else if (commandData.command === "switch-off-all") {
+				} else if (command === "switch-off-all") {
 					set(ref(db, "SWITCH_01_IS_OPEN"), isOpen);
 					set(ref(db, "SWITCH_02_IS_OPEN"), isOpen);
 					set(ref(db, "SWITCH_03_IS_OPEN"), isOpen);
 					set(ref(db, "SWITCH_04_IS_OPEN"), isOpen);
 				}
-
-				console.log(commandData);
 			},
 		});
 	}, [isOpen, setIsOpen]);
